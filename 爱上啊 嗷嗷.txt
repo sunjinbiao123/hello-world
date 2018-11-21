@@ -1,0 +1,15 @@
+1.游戏步骤：用定义函数的方法设计整个猜数游戏。
+                ‘初始游戏’首先定义函数init_game(lists),设置一个空列表temp，利用while循环取15个不重复的从1到255的随机整数添加到temp列表中，利用for循环将temp列表分成3行，每行5个元素且用空格分开.
+                ‘ 询问’再定义函数ask_player(lists),用多重嵌套的方法执行。利用while循环和if语句来实现 “询问”这一环节。
+                ‘发牌’定义新函数shuffle_card(temp,lists)，用多重嵌套的方法执行，利用while和if语句实现
+                   用格式化输出的方式打印出你所选的数字。
+2.算法：（1）随机数：import random        random.randint
+                    不重复：如果num不在temp列表中，则将其添加到temp列表中
+                    换行：把i放入temp的长度中，输出temp列表中的第(i+1）个元素.  i%5==4  每出现5个元素换行
+            （2） 选行：1.一共有3行数，第一次为第一行的数，如果选择no，则出现第二行数字，选择no，则出现第三行数字。
+                               2.选择第一行，接下来会从temp列表中按照lists[1],lists[0]lists[2]的序列从第一个元素开始选取间隔为2的元素的5个元素
+                                 选择第二行，接下来会从temp列表中按照lists[0],lists[1]lists[2]的序列从第一个元素开始选取间隔为2的元素的5个元素
+                                 选择第三行，接下来会从temp列表中按照lists[0],lists[2]lists[1]的序列从第一个元素开始选取间隔为2的元素的5个元素 
+            （3）发牌：1.当 j=0时,lists[0].append(temp[0][0])    lists[1].append(temp[0][1])   lists[2].append(temp[0][2])    lists[0].append(temp[0][3])    lists[1].append(temp[0][4])
+                                 当j=1时,lists[2].append(temp[1][0])     lists[0].append(temp[1][1])  lists[1].append(temp[1][2])     lists[2].append(temp[1][3])    lists[0].append(temp[1][4])
+                                 当j=2时,lists[1].append(temp[2][0])     lists[2].append(temp[2][1])  lists[0].append(temp[2][2])     lists[1].append(temp2][3])     lists[2].append(temp[2][4])
